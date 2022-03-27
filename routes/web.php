@@ -55,17 +55,6 @@ Route::get('login', function(){
     return redirect()->route('admin.brand');
 });
 // localhost:8000/login
-// group name
-Route::prefix('admin')->name('admin.')->group(function(){
-
-    Route::get('brand', function(){
-        return "This is brand page";
-    })->name('brand');
-
-    Route::get('my-dashboard', function(){
-        return "this is home page";
-    })->name('home');
-});
 
 // routing view
 Route::get('test-view', function(){
