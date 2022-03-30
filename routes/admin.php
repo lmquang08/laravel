@@ -19,9 +19,14 @@ use App\Http\Controllers\Admin\RoleController;
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('login',[LoginController::class, 'index'])->name('login');
     Route::post('handle',[LoginController::class, 'handleLogin'])->name('handle.login');
+    Route::post('logout',[LoginController::class, 'logout'])->name('logout');
 });
 
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard');
-    Route::get('role',[RoleController::class,'index'])->name('roles');
+Route::prefix('admin')
+    ->name('admin.')
+    ->middleware('check.login.admin.page')
+    ->group(function(){
+        Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard');
+        Route::post('search-dashboard', [DashboardController::class, 'search'])->name('dashboard.search');
+        Route::get('role',[RoleController::class,'index'])->name('roles');
 });

@@ -33,4 +33,12 @@ class LoginController extends Controller
             return redirect()->back()->with('invalidLogin', 'Tai khoan khong ton tai');
         }
     }
+
+    public function logout(Request $request)
+    {
+        // huy session dc tao ra.
+        // quay ve trang login
+        $request->session()->flush();
+        return redirect()->route('admin.login');
+    }
 }

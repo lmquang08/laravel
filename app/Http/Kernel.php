@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'check.token' => \App\Http\Middleware\EnsureTokenIsValid::class,
         'check.age' => \App\Http\Middleware\CheckAgeWatchFilm::class,
         'test.login.user' => \App\Http\Middleware\TestUserLogin::class,
+        'check.login.admin.page' => \App\Http\Middleware\CheckLoginAdminPage::class,
     ];
 }

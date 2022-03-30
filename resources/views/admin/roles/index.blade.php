@@ -5,6 +5,7 @@
     $buttonReport = false;
 @endphp
 
+@section('title', 'Role')
 @section('namePageHeading', 'Roles')
 
 @section('content')
