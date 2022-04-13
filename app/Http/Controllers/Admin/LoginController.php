@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use voku\helper\AntiXSS;
 use App\Http\Requests\PostLoginRequest as PostLogin;
+use App\Models\Admin;
+// use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -20,10 +22,14 @@ class LoginController extends Controller
         $user     = $antiXSS->xss_clean($user);
         $password = $request->input('passwordUser');
         $password = $antiXSS->xss_clean($password);
+        $infoUser = Admin::where(['email' => $user, 'password' => $password])->first();
+        // query builder tra ve object khong phai array
 
-        if($user === 'trieunt@gmail.com' && $password === '123456789'){
+        if($infoUser !== null){
             // oke
-            $request->session()->put('sessionEmailUser', $user);
+            $request->session()->put('sessionEmailUser', $infoUser->email);
+            $request->session()->put('sessionIdUser', $infoUser->id);
+            $request->session()->put('sessionUser', $infoUser->username);
             // $_SESSION['sessionEmailUser'] = $user;
             return redirect()->route('admin.dashboard');
             // header("Location: index.php?c=dashboard");
