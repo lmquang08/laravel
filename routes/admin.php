@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,16 @@ Route::prefix('admin')
     ->name('admin.')
     ->middleware('check.login.admin.page')
     ->group(function(){
+
+        // dashboard
         Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard');
         Route::post('search-dashboard', [DashboardController::class, 'search'])->name('dashboard.search');
+
+        // role
         Route::get('role',[RoleController::class,'index'])->name('roles');
+        Route::get('add-role', [RoleController::class, 'addRole'])->name('add.role');
+
+        // permissions
+        Route::get('permissions',[PermissionController::class, 'index'])->name('permissions');
+        Route::post('add-permission',[PermissionController::class, 'handleAdd'])->name('add.permission');
 });

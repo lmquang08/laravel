@@ -11,7 +11,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h3> Role page </h3>
+            <a class="btn btn-primary" href="{{ route('admin.add.role') }}">Add role</a>
         </div>
     </div>
 @endsection

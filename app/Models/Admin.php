@@ -38,4 +38,10 @@ class Admin extends Model
     // bat ky thuoc tinh nao deu khong bi mass assignable chi phoi
     // protected $guarded = [];
     // khong the su dung dong thoi ca 2 duoc
+
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'admin_role', 'admin_id', 'role_id');
+    }
 }

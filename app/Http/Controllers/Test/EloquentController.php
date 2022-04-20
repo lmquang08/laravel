@@ -6,12 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Brand;
+use App\Models\Role;
 use App\Models\Production;
 
 class EloquentController extends Controller
 {
     public function query()
     {
+        $user = Role::find(1)->admins;
+        dd($user->toArray());
+        
+        $roles = Admin::find(2)->roles()->orderBy('name')->get();
+        dd($roles->toArray());
 
         $pd = Production::find(1); // san pham id bang 1
         dd($pd->brand->logo); // lay ra dc logo thuong hieu cua san pham day
