@@ -48,6 +48,7 @@ class CustomerController extends Controller
             }
         }
 
+        
         $hasPassword = Hash::make($password);
 
         $customer->email = $email;
