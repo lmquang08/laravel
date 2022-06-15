@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:ital,wght@0,400;0,700;1,300;1,400;1,500&display=swap');
+
+:root {
+    --main-color: #6DBFE2;
+    --sub-text: 'Open Sans', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    width: 100%;
+    background-color: #dddddd;
+
+}
+.header-item {
+    padding: 32px;
+    margin-top: 55px;
+    margin-left: 15px;
+    height: 100px;
+    background-color: white;
+    cursor: pointer;
+}
+.header-item > a{
+    text-decoration: none;
+    color: black;
+}
+
+.card-price {
+    font-family: var(--sub-text);
+    color: var(--main-color);
+    font-size: 25px;
+}
+
+.slide-item {
+    display: block;
+    max-width:100%;
+    max-height:600px;
+    width: auto;
+    height: auto;
+}

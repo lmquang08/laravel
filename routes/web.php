@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainPage\LoginPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('main-page')->name('main-page.')->group(function(){
+    Route::get('login', [LoginPageController::class, 'index'])->name('login');
 });
+
+
 Route::get('demo', function () {
     return "Hi you - demo";
 })->name('demo');

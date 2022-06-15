@@ -11,7 +11,8 @@ class DashboardController extends Controller
     {
         $sessionUser = $request->session()->get('sessionEmailUser');
         // $sessionUser = $_SESSION['sessionEmailUser'] ?? '';
-
+        $permit = $request->session()->get('permissionSessionUser');
+        
         $students = [
             [
                 'id' => 1,

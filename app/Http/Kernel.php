@@ -67,5 +67,8 @@ class Kernel extends HttpKernel
         'check.age' => \App\Http\Middleware\CheckAgeWatchFilm::class,
         'test.login.user' => \App\Http\Middleware\TestUserLogin::class,
         'check.login.admin.page' => \App\Http\Middleware\CheckLoginAdminPage::class,
+        'check.switch.role.admin' => \App\Http\Middleware\CheckSwitchRoleAdmin::class,
+        'token.authenticate' => \App\Http\Middleware\TokenAuthenticate::class,
+        'check.login.home.page' => \App\Http\Middleware\CheckLoginHomePage::class,
     ];
 }

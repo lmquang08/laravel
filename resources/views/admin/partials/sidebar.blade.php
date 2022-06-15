@@ -37,7 +37,12 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('admin.roles') }}">Roles</a>
                 <a class="collapse-item" href="{{ route('admin.permissions') }}">Permissions</a>
-                <a class="collapse-item" href="cards.html">Accounts</a>
+                <a class="collapse-item" href="{{ route('admin.tour') }}">Tour</a>
+                <a class="collapse-item" href="{{ route('admin.customer') }}">Customer</a>
+
+                @if (viewAllUser())
+                    <a class="collapse-item" href="{{ route('admin.account') }}">Accounts</a>                  
+                @endif
             </div>
         </div>
     </li>
